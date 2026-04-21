@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية — ELOS</title>
+    <style>
+        body { font-family: 'Tahoma', 'Arial', sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.8; color: #1a1a1a; background: #fafafa; }
+        h1 { color: #1E88E5; border-bottom: 2px solid #1E88E5; padding-bottom: 0.5rem; }
+        h2 { color: #0F172A; margin-top: 2rem; }
+        h3 { color: #0F172A; margin-top: 1.2rem; }
+        a { color: #1E88E5; }
+        .meta { color: #666; font-size: 0.9rem; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: right; }
+        th { background: #f0f4f8; }
+        .badge-yes { background: #d4edda; color: #155724; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .badge-no { background: #f8d7da; color: #721c24; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        ul { padding-right: 1.5rem; }
+    </style>
+</head>
+<body>
+    <h1>سياسة الخصوصية — ELOS</h1>
+    <p class="meta"><strong>تاريخ السريان:</strong> أبريل 2026 &nbsp;|&nbsp; <strong>آخر تحديث:</strong> أبريل 2026</p>
+
+    <p>توضح سياسة الخصوصية هذه كيفية تعامل <strong>ELOS Software Service</strong> ("نحن") مع المعلومات من خلال تطبيق <strong>ELOS</strong> للهواتف المحمولة ("التطبيق"). التطبيق مُوجَّه لصاحب المحل فقط كلوحة تحكم مرافِقة لبرنامج ELOS للمحاسبة المثبّت على الكمبيوتر.</p>
+
+    <h2>ملخص سريع</h2>
+    <table>
+        <tr><th>العنصر</th><th>الحالة</th></tr>
+        <tr><td>نجمع إعلانات تتبعية أو تحليلات سلوكية</td><td><span class="badge-no">لا</span></td></tr>
+        <tr><td>نبيع بياناتك لأي طرف ثالث</td><td><span class="badge-no">لا</span></td></tr>
+        <tr><td>نستخدم Google Analytics / Crashlytics</td><td><span class="badge-no">لا</span></td></tr>
+        <tr><td>نعرض إعلانات</td><td><span class="badge-no">لا</span></td></tr>
+        <tr><td>كل الاتصالات مُشفّرة (TLS)</td><td><span class="badge-yes">نعم</span></td></tr>
+        <tr><td>بإمكانك طلب حذف بياناتك في أي وقت</td><td><span class="badge-yes">نعم</span></td></tr>
+    </table>
+
+    <h2>1. المعلومات التي نعالجها</h2>
+
+    <h3>1.1 معلومات الحساب</h3>
+    <ul>
+        <li><strong>البريد الإلكتروني:</strong> يُستخدم لتسجيل الدخول عبر Supabase Auth.</li>
+        <li><strong>كلمة المرور:</strong> لا تُحفظ على الجهاز ولا تُرسل لنا مباشرة — المصادقة تتم بالكامل عبر Supabase.</li>
+        <li><strong>رمز تفعيل الترخيص (Activation Code):</strong> يُسجَّل في قاعدة بياناتنا لربط جهازك بترخيص محلك.</li>
+    </ul>
+
+    <h3>1.2 بيانات العمل المعروضة (للقراءة فقط)</h3>
+    <p>التطبيق يعرض بيانات العمل الخاصة بمحلك فقط (والموجودة بالفعل في حسابك على خادم ELOS):</p>
+    <ul>
+        <li>المبيعات، المخزون، العملاء، الموردين</li>
+        <li>تذاكر الصيانة، الموظفين</li>
+        <li>الدرج والخزنة، المشتريات، المخازن</li>
+    </ul>
+    <p><strong>التطبيق لا يُعدِّل هذه البيانات</strong> — كل التعديلات تتم من برنامج ELOS على الكمبيوتر.</p>
+
+    <h3>1.3 البيانات التي يكتبها التطبيق (فنية فقط)</h3>
+    <p>للشفافية الكاملة، التطبيق يكتب فقط على جداول نظام محدودة لأغراض التشغيل:</p>
+    <ul>
+        <li><strong>mobile_sessions:</strong> معرِّف جلسة الجهاز + وقت آخر نشاط — لحصر عدد الأجهزة المسموح لها بالدخول.</li>
+        <li><strong>fcm_tokens:</strong> رمز الإشعارات من Firebase + نوع المنصة (Android) — لإرسال الإشعارات.</li>
+        <li><strong>mobile_licenses:</strong> حالة ترخيص/تجربة محلك.</li>
+        <li><strong>notifications (حقل is_read فقط):</strong> لوضع علامة "تمت القراءة" على الإشعار.</li>
+    </ul>
+
+    <h3>1.4 التخزين المحلي على جهازك</h3>
+    <p>يستخدم التطبيق تخزين Android الآمن (SharedPreferences) لحفظ التفضيلات التالية فقط:</p>
+    <ul>
+        <li><code>elos_device_id</code>: معرّف عشوائي (UUID) لجهازك لتمييز الجلسة.</li>
+        <li><code>theme_mode</code>: اختيارك للثيم (فاتح/داكن).</li>
+        <li><code>notifications_enabled</code>: تفضيلك لتفعيل/تعطيل الإشعارات.</li>
+        <li><code>whatsapp_footer_message</code>: نص تذييل تختاره لرسائل واتساب الخاصة بالصيانة.</li>
+    </ul>
+    <p><strong>لا يتم تخزين كلمات المرور أو رموز المصادقة على الجهاز.</strong></p>
+
+    <h3>1.5 الوصول للكاميرا</h3>
+    <p>تُستخدم الكاميرا <strong>فقط</strong> لمسح رمز QR أثناء الربط الأول مع برنامج ELOS على الكمبيوتر. يتم فك الرمز فوراً في الذاكرة ثم تمرير بيانات الدخول مباشرة إلى Supabase. <strong>لا يتم حفظ أو تسجيل أو إرسال أي صور أو فيديو.</strong></p>
+
+    <h2>2. كيف نستخدم المعلومات</h2>
+    <ul>
+        <li>للتحقق من هوية صاحب الحساب (مصادقة).</li>
+        <li>لعرض بيانات عملك الموجودة بالفعل في حسابك.</li>
+        <li>لإرسال إشعارات تشغيلية (مبيعة جديدة، نقص مخزون، تذكرة صيانة جاهزة، وغيرها).</li>
+        <li>للحفاظ على جلسة آمنة بين مرات التشغيل.</li>
+        <li>للتحقق من حالة الترخيص وصلاحية الاشتراك.</li>
+    </ul>
+    <p><strong>لا نستخدم بياناتك لأي غرض إعلاني أو تسويقي أو تصنيف سلوكي أو إعادة بيع.</strong></p>
+
+    <h2>3. مقدمو الخدمة (Service Providers)</h2>
+    <p>نعتمد على مزوّدَين اثنين فقط لتشغيل التطبيق:</p>
+    <ul>
+        <li><strong>Supabase</strong> — قاعدة البيانات والمصادقة. بياناتك مُستضافة على خوادم Supabase ومعزولة بنظام Row-Level Security (RLS) حسب معرّف حسابك. (<a href="https://supabase.com/privacy" target="_blank">سياسة الخصوصية</a>)</li>
+        <li><strong>Google Firebase Cloud Messaging (FCM)</strong> — إرسال الإشعارات فقط. لا نستخدم Firebase Analytics ولا Crashlytics ولا Firestore. (<a href="https://firebase.google.com/support/privacy" target="_blank">سياسة الخصوصية</a>)</li>
+    </ul>
+
+    <h2>4. روابط خارجية يفتحها التطبيق</h2>
+    <p>التطبيق قد يفتح الروابط التالية بناءً على تفاعل المستخدم فقط:</p>
+    <ul>
+        <li><strong>مكالمات هاتفية (<code>tel:</code>):</strong> عند الضغط على رقم عميل أو مورد داخل التطبيق.</li>
+        <li><strong>واتساب (<code>wa.me</code>):</strong> لإرسال تحديثات حالة تذاكر الصيانة للعميل — الرسالة تحتوي على بيانات التذكرة (رقم، جهاز، حالة، سعر).</li>
+    </ul>
+    <p>هذه الإجراءات يُصدرها المستخدم يدوياً.</p>
+
+    <h2>5. تصدير ومشاركة الملفات</h2>
+    <p>التطبيق يتيح تصدير تقارير كشوف الحساب كملفات PDF. هذه الملفات تحتوي على تاريخ المعاملات وأسماء العملاء/الموردين وأرقام هواتفهم. <strong>يتم إنشاؤها في ذاكرة الجهاز ومشاركتها عبر نظام المشاركة الخاص بالأندرويد</strong> — التطبيق لا يرفعها إلى أي خادم أو خدمة سحابية تلقائياً.</p>
+
+    <h2>6. البيانات التي لا نجمعها</h2>
+    <ul>
+        <li>❌ لا نجمع موقعك الجغرافي.</li>
+        <li>❌ لا نجمع بصمة الجهاز (IMEI، Serial، MAC، IP).</li>
+        <li>❌ لا نجمع جهات اتصالك.</li>
+        <li>❌ لا نجمع تاريخ التصفح.</li>
+        <li>❌ لا نجمع سجل الصور أو الوسائط.</li>
+        <li>❌ لا نجمع رسائل SMS أو المكالمات.</li>
+        <li>❌ لا نستخدم أي SDK إعلاني أو تحليلي.</li>
+    </ul>
+
+    <h2>7. الأمان</h2>
+    <ul>
+        <li>🔒 كل الاتصالات بين التطبيق وSupabase/Firebase مشفّرة باستخدام TLS.</li>
+        <li>🔒 بيانات كل محل معزولة عن غيره بنظام Row-Level Security.</li>
+        <li>🔒 لا تُخزَّن كلمات المرور على الجهاز — المصادقة تتم عبر رمز جلسة (JWT) مدار من Supabase.</li>
+        <li>🔒 مراجعة فنية دورية للتطبيق.</li>
+    </ul>
+
+    <h2>8. الاحتفاظ بالبيانات</h2>
+    <p>يتم الاحتفاظ ببيانات عملك طوال فترة نشاط حسابك. عند طلب حذف الحساب:</p>
+    <ul>
+        <li>تُحذف جميع البيانات المرتبطة بحسابك من Supabase خلال 30 يومًا.</li>
+        <li>يُحذف رمز FCM الخاص بجهازك فوراً من جداولنا.</li>
+        <li>النسخ الاحتياطية قد تحتفظ بالبيانات لفترة إضافية محدودة قبل التطهير الكامل.</li>
+    </ul>
+
+    <h2>9. خصوصية الأطفال</h2>
+    <p>التطبيق أداة أعمال (Business Tool) وغير موجَّه للأطفال دون 13 عامًا. لا نجمع عن قصد معلومات من أطفال.</p>
+
+    <h2>10. الصلاحيات التي نطلبها</h2>
+    <ul>
+        <li><strong>Internet</strong> (إجبارية): لمزامنة بياناتك مع حسابك.</li>
+        <li><strong>Camera</strong> (اختيارية): فقط لمسح رمز QR للربط — يمكنك رفض الصلاحية وإدخال البيانات يدوياً.</li>
+        <li><strong>Post Notifications</strong> (اختيارية): لإرسال تنبيهات الأعمال — يمكنك تعطيلها من إعدادات التطبيق.</li>
+    </ul>
+
+    <h2>11. حقوقك</h2>
+    <p>يحق لك في أي وقت:</p>
+    <ul>
+        <li>الوصول إلى بياناتك المخزنة.</li>
+        <li>تصحيح أي معلومات غير دقيقة (من خلال برنامج ELOS Desktop).</li>
+        <li>تصدير بياناتك بصيغة قابلة للقراءة.</li>
+        <li>طلب حذف حسابك وبياناتك نهائياً.</li>
+        <li>سحب الموافقة على معالجة البيانات.</li>
+    </ul>
+    <p>لممارسة أي من هذه الحقوق، تواصل معنا (القسم 12).</p>
+
+    <h2>12. التواصل</h2>
+    <p>
+        <strong>ELOS Software Service</strong><br>
+        المحلة الكبرى، الغربية، مصر<br>
+        البريد الإلكتروني: <a href="mailto:support@elos-software.com">support@elos-software.com</a>
+    </p>
+
+    <h2>13. التعديلات على هذه السياسة</h2>
+    <p>قد نُحدِّث هذه السياسة. يعكس تاريخ "آخر تحديث" أعلى الصفحة أي تغييرات. سيتم إشعارك بالتغييرات الجوهرية داخل التطبيق.</p>
+</body>
+</html>
